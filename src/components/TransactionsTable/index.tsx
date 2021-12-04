@@ -3,9 +3,7 @@ import { api } from "../../services/api";
 import { Container } from "./styles";
 
 
-interface TransactionResponse {
-    transactions: Transaction[]
-}
+
 
 interface Transaction {
     id: number
@@ -13,7 +11,7 @@ interface Transaction {
     category: string,
     type: string,
     amount: number
-    createdAt: Date
+    createdAt: string
 }
 
 export function TransactionsTable() {
@@ -39,9 +37,9 @@ export function TransactionsTable() {
             <tbody>
                 {transactions.map(transaction => <tr key={transaction.id}>
                     <td className="title">{transaction.title}</td>
-                    <td className={transaction.type}>{transaction.amount}</td>
+                    <td className={transaction.type}>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(transaction.amount)}</td>
                     <td>{transaction.category}</td>
-                    <td>{transaction.createdAt}</td>
+                    <td>{new Intl.DateTimeFormat('pt-BR').format(new Date(transaction.createdAt))}</td>
                 </tr>
                 )}
 
