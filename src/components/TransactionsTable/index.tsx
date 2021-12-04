@@ -1,39 +1,39 @@
 import { useEffect } from "react";
-import { api } from "../../services/api";
+import { api } from "../../styles/api";
 import { Container } from "./styles";
 
 export function TransactionsTable() {
 
-  useEffect(() => {
-    api.get('transactions').then(response => console.log(response.data))
+    useEffect(() => {
+        api.get('transactions').then(response => console.log(response.data))
 
-  }, [])
+    }, [])
 
-  return <Container>
-    <table>
-      <thead>
-        <tr>
-          <th>Título</th>
-          <th>Valor</th>
-          <th>Categoria</th>
-          <th>Data</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="title" >Desenvolvimento de website</td>
-          <td className="deposit">R$ 12.000,50</td>
-          <td>Desenvolvimento</td>
-          <td>20/02/2021</td>
-        </tr>
-        <tr>
-          <td>Aluguel</td>
-          <td className="withdraw">-R$ 1.100,50</td>
-          <td>Casa</td>
-          <td>25/11/2021</td>
-        </tr>
+    return <Container>
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Valor</th>
+                    <th>Categoria</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td className="title" >Desenvolvimento de website</td>
+                    <td className="deposit">R$ 12.000,50</td>
+                    <td>Desenvolvimento</td>
+                    <td>20/02/2021</td>
+                </tr>
+                <tr>
+                    <td>Aluguel</td>
+                    <td className="withdraw">-R$ 1.100,50</td>
+                    <td>Casa</td>
+                    <td>25/11/2021</td>
+                </tr>
 
-      </tbody>
-    </table>
-  </Container>
+            </tbody>
+        </table>
+    </Container>
 }

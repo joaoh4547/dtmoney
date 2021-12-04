@@ -8,26 +8,26 @@ import { NewTransactionModal } from "./components/NewTransactionModal";
 Modal.setAppElement("#root")
 
 export function App() {
-  const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false)
+    const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false)
 
-  function handleOpenNewTransactionModal() {
-    setIsNewTransactionModalOpen(true)
-  }
+    function handleOpenNewTransactionModal() {
+        setIsNewTransactionModalOpen(true)
+    }
 
-  function handleCloseNewTransactionModal() {
-    setIsNewTransactionModalOpen(false)
-  }
-  return (
-    <>
-      <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
-      <Dashboard />
-      <NewTransactionModal
-        isOpen={isNewTransactionModalOpen}
-        onClose={handleCloseNewTransactionModal}
-      />
-      <GlobalStyle />
+    function handleCloseNewTransactionModal() {
+        setIsNewTransactionModalOpen(false)
+    }
+    return (
+        <>
+            <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
+            <Dashboard />
+            <NewTransactionModal
+                isOpen={isNewTransactionModalOpen}
+                onClose={handleCloseNewTransactionModal}
+            />
+            <GlobalStyle />
 
-    </>
-  );
+        </>
+    );
 }
 
